@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>TextAlanizer</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <style>
+            #contenedor{
+                width: 50%;
+                padding: 4%;
+                padding-top: 20px;
+                border: 1px solid black;
+            }
+            #texto{
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            button{
+                width: 100%;
+            }
+            #salEmail,#salFech,#salName,#salSum,#salTipol{
+                border:1px solid black;
+                width: 100%;
+                padding-left: 15px;
+                margin-bottom: 10%;
+                height: 80%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container" id="contenedor">
+            <h1>TEXT ANALIZER</h1>
+            
+            <!-- Entrada de texto -->
+            <textarea id="texto"></textarea>
+            
+            <!-- FECHA -->
+            <div class='row'>
+                <div class="col-4" style="">
+                    <button onclick="aniButt(0)">Fechas</button>
+                </div>
+                <div class="col">
+                    <p id='salFech'></p>
+                </div>
+            </div>
+            
+            <!-- EMAIL -->
+            <div class='row'>
+                <div class="col-4">
+                    <button onclick="aniButt(1)">Email</button>
+                </div>
+                <div class="col">
+                    <p id='salEmail'></p>
+                </div>
+            </div>
+            
+            <!-- NOMBRE -->
+            <div class='row'>
+                <div class="col-4">
+                    <button onclick="aniButt(2)">Nombres</button>
+                </div>
+                <div class="col">
+                    <p id='salName'></p>
+                </div>
+            </div>
+            
+            <!-- TIPOLOGIA -->
+            <div class='row'>
+                <div class="col-4">
+                    <button onclick="aniButt(3)">Tipologia</button>
+                </div>
+                <div class="col">
+                    <p id='salTipol'></p>
+                </div>
+            </div>
+            
+            <!-- SUMA -->
+            <div class='row'>
+                <div class="col-4">
+                    <button onclick="aniButt(4)">Suma</button>
+                </div>
+                <div class="col">
+                    <p id='salSum'></p>
+                </div>
+            </div>
+            <script src='Analizator.js'></script>
+            <script src='motor.js'></script>
+        </div>
+    </body>
+</html>
