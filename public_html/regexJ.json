@@ -1,0 +1,8 @@
+{
+    "deCode":["fecha","email","nombre","tipologia","suma"],
+    "fecha": "\\d{1,2}[/-]\\d{1,2}[/-]\\d{2,4}",
+    "email":"\\S*@\\w*.\\w*",
+    "nombre":["Guille\\w*","Sandr\\w*"],
+    "tipologia":"bueno",
+    "suma":"\\d+"
+}

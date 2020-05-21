@@ -7,34 +7,39 @@ let Stipol = document.getElementById('salTipol');
 let Ssum = document.getElementById('salSum');
 var salidas = [Sfech,Semail,Sname,Stipol,Ssum];
 var analitc = new Analizator();
+var regexJ;
 
-// Regular expresion prehechas
-let regexS = [
-    '\\d{1,2}[/-]\\d{1,2}[/-]\\d{2,4}', // Fechas
-    '\\w*@\\w*.\\w*',                   // Correo
-    'Guille\\w*',          // nombres
-    'bueno',                            // tipologia
-    '\\d+'                              // Suma
-]
-var test = function(){
-    for (cont in salidas){
-        salidas[cont].innerHTML=cont;
-    }
-}
+let modi = 'gi';
+
+var lecturaJSON = function(){
+    fetch('regexJ.json')
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(jsonR){
+            console.log(jsonR);
+            regexJ = jsonR;
+        }
+    );
+};
 
 var aniButt = function(ty){
     console.log('ejecucion funcion aniButt');
-    var Msalida = analitc.analizar(IDtext.value,regexS[ty],"gi");
-    
+    // decodificamos el ty al nombre clave del JSON 
+    var n = regexJ.deCode[ty];
+    console.log("Tipo de elementos: " + typeof regexJ[n]);
+    // Extraemos el resultado del Regular expresion
+    var Msalida = analitc.analizar(IDtext.value,regexJ[n],modi);
+     
     if( ty == 4 ){
-        var numS = analitc.analizar(IDtext.value,regexS[ty],"gi");
-        var suma;
+        var numS = analitc.analizar(IDtext.value,regexJ[n],modi);
         var operacion = '';
-        for(i in numS){
+        for(var i in numS){
             operacion += '+' + numS[i];
         }
         Msalida = eval(operacion);
     }
     salidas[ty].innerHTML = Msalida;
-}
-document.addEventListener('onload',test());
+};
+
+document.addEventListener('onload',lecturaJSON());
