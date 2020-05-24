@@ -6,14 +6,14 @@
         "3":"tipologia",
         "4":"suma"
     },
-    "fecha":"\\d{1,2}[/-]\\d{1,2}[/-]\\d{2,4}",
+    "fecha":["\\d{1,2}[/-]\\d{1,2}[/-]\\d{2,4}","\\d{1,2}\\sde\\s(enero|febrero|marzo|abrirl|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\\sde\\s\\d{2,4}"],
     "email":"\\S*@\\w*.\\w*",
-    "nombre":["Guille\\w*","Sandr\\w*","Pedro", "Luis\\w*", "Jav(i|ier)", 
-        "Jorge", "Albe(r|rto)", "Manuel", "Ana", "Andr(és|ea)", "No(e|elia)","Berta", "Margarita", "Leire"
+    "nombre":["Guille\\w*","Sandr\\w*","Pedro", "Luis\\w*", "Javier", 
+        "Jorge", "Alberto", "Manuel", "Ana", "Andr(és|ea)", "Noelia","Bert(a|o)", "Margarita", "Leire"
     ],
     "tipologia":{
         "bueno":["alegr\\w*", "buen[ao]\\w*", "mejor\\w*", "perfec\\w*", "genial\\w*", "conseguid[oa]", "feli[cz]\\w*"],
-        "malo":["maldad","mal[ao]", "perdido","triste", "nefasto", "crisis", "caos", "perdid[ao]"]
+        "malo":["maldad","mal[ao]","triste", "nefasto", "crisis", "caos", "perdid[ao]"]
     },
     "suma":"\\d+"
 }

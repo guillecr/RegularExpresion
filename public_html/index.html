@@ -3,91 +3,113 @@
     <head>
         <title>TextAlanizer</title>
         <meta charset="UTF-8">
+        <meta author="Guillermo Casas">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <style>
             #contenedor{
                 width: 50%;
                 padding: 4%;
                 padding-top: 20px;
+                padding-bottom: 2%;
+                margin-top: 20px;
                 border: 1px solid black;
             }
             #texto{
                 width: 100%;
+                height: 22vh;
                 margin-bottom: 20px;
             }
+            #fila{
+                margin-bottom: 10px;
+            }
             button{
-                width: 100%;
+                width: 70%;
+                height: 40px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                background-color: orange;
+                border-radius: 10px;
             }
             #salEmail,#salFech,#salName,#salSum,#salTipol{
                 border:1px solid black;
                 width: 100%;
+                height: 100%;
                 padding-left: 15px;
-                margin-bottom: 10%;
+                background-color: #B1F2F8;
+                border-radius: 10px;
+            }
+            #salEmail,#salFech,#salName,#salSum{
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             li{
                 margin-left: 15px;
                 padding-left:5px;
             }
+            #texto,button,#salEmail,#salFech,#salName,#salSum,#salTipol{
+                box-shadow: 2px 2px 5px gray;
+            }
         </style>
     </head>
     <body>
         <div class="container" id="contenedor">
-            <h1>TEXT ANALIZER</h1>
+            <h1 style="text-align:center;">TEXT ANALIZER</h1>
             
             <!-- Entrada de texto -->
             <textarea id="texto"></textarea>
             
             <!-- FECHA -->
-            <div class='row'>
-                <div class="col-4" style="">
+            <div class='row' id="fila">
+                <div class="col-4">
                     <button onclick="aniButt(0)">Fechas</button>
                 </div>
                 <div class="col">
-                    <p id='salFech'>Fechas encontradas</p>
+                    <p id='salFech'></p>
                 </div>
             </div>
             
             <!-- EMAIL -->
-            <div class='row'>
+            <div class='row' id="fila">
                 <div class="col-4">
                     <button onclick="aniButt(1)">Email</button>
                 </div>
                 <div class="col">
-                    <p id='salEmail'>Emails encontrados</p>
+                    <p id='salEmail'></p>
                 </div>
             </div>
             
             <!-- NOMBRE -->
-            <div class='row'>
-                <div class="col-4">
+            <div class='row' id="fila">
+                <div class="col-4" id="divBut">
                     <button onclick="aniButt(2)">Nombres</button>
                 </div>
                 <div class="col">
-                    <p id='salName'>Nombres encontrados</p>
+                    <p id='salName'></p>
                 </div>
             </div>
             
             <!-- TIPOLOGIA -->
-            <div class='row'>
+            <div class='row' id="fila">
                 <div class="col-4">
                     <button onclick="aniButt(3)">Tipologia</button>
                 </div>
                 <div class="col">
-                    <p id='salTipol'>Analisis tipologico</p>
+                    <p id='salTipol'></p>
                 </div>
             </div>
             
             <!-- SUMA -->
-            <div class='row'>
+            <div class='row' id="fila">
                 <div class="col-4">
                     <button onclick="aniButt(4)">Suma</button>
                 </div>
                 <div class="col">
-                    <p id='salSum'>Suma de todos los numeros</p>
+                    <p id='salSum'></p>
                 </div>
             </div>
-            <script src='Analizator.js'></script>
-            <script src='motor.js'></script>
         </div>
+        <script src='./js/Analizator.js'></script>
+        <script src='./js/motor.js'></script>
     </body>
 </html>

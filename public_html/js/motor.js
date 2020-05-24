@@ -1,3 +1,11 @@
+/**============================================
+ *   Programa de analisis de texto
+ * 
+ *   AUTOR: Guillermo Casas
+ *   Versión: 24-05-20
+ * ============================================
+ */
+
 // VARIABLES DE SESIÓN
 // Contenedor del texto
 let IDtext  = document.getElementById('texto'); 
@@ -38,6 +46,24 @@ var lecturaJSON = function(){
 };
 
 /**
+ * Funcion que nos devuelve el contenido de una lista en formato 
+ * String con el separador indicado
+ * 
+ * @param {type} arr Lista con los valores a trasformar
+ * @param {type} sepa Caracter separador
+ * @returns {String|preFormat.text} String con la lista
+ */
+var preFormat = function(arr,sepa=','){
+    var text="";
+    sepa = sepa+" ";
+    for(i in arr){
+        text += arr[i]+sepa;
+    }
+    text = text.substr(0,(text.length-sepa.length));
+    return text;
+}
+
+/**
  * Función principal. Se iniciará al pulsar un botón. Se enviará como parámetro 
  * el código numérico del botón.
  * En función del código de botón se decodifica al nombre de la lista a la que
@@ -64,10 +90,14 @@ var aniButt = function(ty){
         Msalida = analitc.analiSum(IDtext.value);
     }
     
+    // Si es un array, le damos nosotros la forma de salida
+    if(typeof Msalida === 'object'){Msalida = preFormat(Msalida);}
+    
     // Si el resultado es nulo, corregimos el mensaje a un mensaje estandar
     if(Msalida === null || Msalida.length<1){
         Msalida="Sin resultados";
     }
+
     salidas[ty].innerHTML = Msalida;
 };
 

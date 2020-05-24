@@ -1,0 +1,3 @@
+Para su correcto funcionamiento es necesario una ejecución 
+en servidor (apache). Sino, puede haber problemas en
+la lectura del archivo .JSON

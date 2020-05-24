@@ -90,9 +90,11 @@ Analizator = function(){
         // Variables locales
         var listas = Object.keys(regular);
         var resultados = [];
+        var Snombres = [];
         var salida="";
         for (var i in listas){
             resultados[i] = this.analizarComp(mensaje,regular[listas[i]],modi);
+            Snombres[i] = preFormat(resultados[i]);
         }
         
         var palabTotal = mensaje.split(" ").length;
@@ -106,7 +108,7 @@ Analizator = function(){
             
             salida+="<u>Palabras: <i>" + listas[i] + "</i></u>" +
                     "<ui>"+ 
-                    "<li><b>Palabras encontradas:</b> " + resultados[i] +
+                    "<li><b>Palabras encontradas:</b> " + Snombres[i] +
                     "<li><b>Número de palabras encontradas:</b> "+ resultados[i].length + "</li>" +
                     "<li><b>% Encontradas / Total encontradas: </b> "+ porcEncon + "%</li>" +
                     "<li><b>% Encontradas / Total:</b> " + porcTotal + "%</li>" +
